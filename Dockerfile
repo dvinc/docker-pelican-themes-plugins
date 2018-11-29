@@ -15,4 +15,8 @@ RUN pip3 install -r ~/pelican-plugins/pelican-ipynb/requirements.txt
 
 RUN git clone --recursive https://github.com/getpelican/pelican-themes ~/pelican-themes
 
+RUN cd ~/pelican-plugins && \
+    git submodule update --remote --merge
+RUN cd
+
 CMD ["pelican", "-h"]
