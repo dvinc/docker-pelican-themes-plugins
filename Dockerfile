@@ -8,6 +8,9 @@ RUN pip3 install --upgrade pip && \
     pip3 install pelican pelican-minify pelican-youtube markdown beautifulsoup4 typogrify gitpython
 
 RUN git clone --recursive https://github.com/getpelican/pelican-plugins ~/pelican-plugins
+RUN cd ~/pelican-plugins && \
+    git submodule update --init --recursive
+RUN cd
 RUN pip3 install -r ~/pelican-plugins/pelican-ipynb/requirements.txt
 
 RUN git clone --recursive https://github.com/getpelican/pelican-themes ~/pelican-themes
